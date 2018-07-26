@@ -172,7 +172,7 @@ html{
     height:100%
 }
 body{
-    background-color:#82c5a0;
+    background-color:#015a49;
     font-family:'Source Sans Pro',Helvetica,Arial,sans-serif;
     font-size:1.125rem;
     color:#230913;
@@ -810,7 +810,81 @@ body>*{
     }
 }
 
+/* Modifications + Additions
+---------------------------------------------- */
+
+body{
+    background-color:#82c5a0;
+}
+
+#TopBar{
+    box-shadow: 0 .1rem 0.2rem .2rem rgba(0, 0, 0, 0.1);
+}
+
 #UserBar {
-  background: #230913;
-  height: 2rem;
+    background: #230913;
+    height: 2rem;
+}
+
+#Dashboard {
+    padding-top: .9rem;
+}
+
+.DashboardPanel {
+    background: #fff;
+    box-shadow: 0 .1rem 0.2rem .2rem rgba(0, 0, 0, 0.1);
+    border-top: .65rem solid #000;
+    overflow: hidden;
+}
+
+.PanelHeaderBar {
+    padding: .8em 1em;
+    background: #fff;
+    border-bottom: 1px solid #d0cbcd;
+    /* box-shadow: 0 .1rem 0.1rem .05rem rgba(0, 0, 0, 0.1); */
+}
+
+.PanelHeaderBar h2 {
+    font-size: 1.5em;
+}
+
+.DashboardPanel .PortfolioValue {
+    padding: 1.2em;
+    text-align: center;
+    border-bottom: 1px solid #d0cbcd;
+    box-shadow: 0 .1rem 0.2rem .2rem rgba(0, 0, 0, 0.1);
+}
+
+.DashboardPanel .PortfolioValue h3 {
+    font-size: .9rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    color: #726067;
+}
+
+.DashboardPanel .PortfolioValue h1 {
+    font-size: 2.8rem;
+    letter-spacing: -0.04rem;
+    color: #230913;
+    margin-bottom: .4rem;
+}
+
+.DashboardPanel .PortfolioValue .PriceChangeIncrease {
+    font-size: 1.2rem;
+    color: #39b54a;
+    margin: 0;
+    position: relative;
+}
+
+.DashboardPanel .PortfolioValue .PriceChangeIncrease::before {
+    position: relative;
+    top: -1.2rem;
+    left: -.2rem;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: .7rem solid transparent;
+    border-right: .7rem solid transparent;
+    border-bottom: .9rem solid #39b54a;
 }
