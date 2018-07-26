@@ -1,0 +1,10 @@
+{
+  "name": "Symetria",
+  "short_name": "Symetria",
+  "description": "Symetria is a cryptocurrency wallet and exchange with proof of integrity",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#c86617",
+  "background_color": "#fffcf7",
+  "icons": [{"src":"android.3b6e9bface322b12.png","sizes":"144x144","type":"image/png"},{"src":"android.1e5d4c3c0612b879.png","sizes":"192x192","type":"image/png"},{"src":"android.a4a1111d1e4d68ed.png","sizes":"36x36","type":"image/png"},{"src":"android.f78b03d6a621125f.png","sizes":"48x48","type":"image/png"},{"src":"android.e3c57b7445abc036.png","sizes":"512x512","type":"image/png"},{"src":"android.ee2ecba95da251b0.png","sizes":"72x72","type":"image/png"},{"src":"android.ba87e613b61b2920.png","sizes":"96x96","type":"image/png"}]
+}
