@@ -28,12 +28,52 @@
   <meta name=description content="Symetria is a cryptocurrency wallet and exchange, the first with personal blockchains" />
 </head>
 
-<body data-landing=1>
+<body itemscope itemtype="http://schema.org/WebPage">
   <div id=UserBar>
   </div>
   <header id=TopBar>
     <div class=EdgePad><img class="Logo Clickable" src=assets/images/SymetriaLogoHome.c9c060f1b0fe017e.png alt="Symetria Logo" srcset="SymetriaLogoHome@2x.a765fa3cf2d0419e.png 2x" /></div>
   </header>
+  <div id=Dashboard>
+    <div id=YourPortfolio class="Content EdgePad">
+      <header>
+        <div class=PanelHeaderBar><h2>Your Portfolio</h2></div>
+        <div class=PortfolioValue>
+          <h1 class=Amount itemprop=amount content=19500.31>C$19,500.31</h1>
+          <p class=PriceChange itemprop=priceChange>+$8,700.86</p>
+        </div>
+      </header>
+      <div itemprop="mainEntity" itemscope itemtype="http://schema.org/ItemList">
+        <meta itemprop="name" content="Easy access accounts Comparison List"/>
+        <table>
+          <tr>
+            <th>Bank</th><th>Account</th><th>Interest Rate</th><th>Min/Max Opening Amount</th><th>Access</th>
+          </tr>
+          <tr itemprop="itemListElement" itemscope itemtype="http://schema.org/DepositAccount">
+            <td><a itemprop="provider" href="https://www.rcibank.co.uk">RCI Bank</a></td>
+            <td itemprop="name">Freedom Savings Account</td>
+            <td itemprop="interestRate" itemscope itemtype="http://schema.org/QuantitativeValue"><span itemprop="value">1.65</span>% <span itemprop="valueReference">Variable</span></td>
+            <td itemprop="amount" itemscope itemtype="http://schema.org/MonetaryAmount"><meta itemprop="currency" content="GBP"/>£<span itemprop="minValue" content="100">100</span> to £<span itemprop="maxValue" content="1000000">1,000,000</span></td>
+            <td><span itemprop="availableChannel">Internet</span>, <span itemprop="availableChannel">Post</span>, <span itemprop="availableChannel">Telephone</span></td>
+          </tr>
+          <tr itemprop="itemListElement" itemscope itemtype="http://schema.org/DepositAccount">
+            <td><a itemprop="provider" href="https://sbiukonlinesavings.com/">State Bank of India</a></td>
+            <td itemprop="name">Online Instant Access Savings Issue 4</td>
+            <td itemprop="interestRate" itemscope itemtype="http://schema.org/QuantitativeValue"><span itemprop="value">1.25</span>% <span itemprop="valueReference">Variable</span></td>
+            <td itemprop="amount" itemscope itemtype="http://schema.org/MonetaryAmount"><meta itemprop="currency" content="GBP"/>£<span itemprop="minValue" content="500">500</span> to £<span itemprop="maxValue" content="1000000">1,000,000</span></td>
+            <td><span itemprop="availableChannel">Internet</span>, <span itemprop="availableChannel">In Branch</span></td>
+          </tr>
+          <tr itemprop="itemListElement" itemscope itemtype="http://schema.org/DepositAccount">
+            <td><a itemprop="provider" href="http://www.aldermore.co.uk/">Aldermore</a></td>
+            <td itemprop="name">Easy Access Issue 9</td>
+            <td itemprop="interestRate" itemscope itemtype="http://schema.org/QuantitativeValue"><span itemprop="value">1.25</span>% <span itemprop="valueReference">Variable</span></td>
+            <td itemprop="amount" itemscope itemtype="http://schema.org/MonetaryAmount"><meta itemprop="currency" content="GBP"/>£<span itemprop="minValue" content="1000">1,000</span> to £<span itemprop="maxValue" content="1000000">1,000,000</span></td>
+            <td><span itemprop="availableChannel">Internet</span>, <span itemprop="availableChannel">Post</span>, <span itemprop="availableChannel">Telephone</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
   <div id=Intro>
     <div class="Content EdgePad">
       <div class=Info>
