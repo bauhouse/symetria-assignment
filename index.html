@@ -34,8 +34,8 @@
   <header id=TopBar>
     <div class=EdgePad><img class="Logo Clickable" src=assets/images/brand/SymetriaLogoHome.c9c060f1b0fe017e.png alt="Symetria Logo" srcset="SymetriaLogoHome@2x.a765fa3cf2d0419e.png 2x" /></div>
   </header>
-  <div id=Dashboard class="Content EdgePad">
-    <div id=YourPortfolio class="DashboardPanel">
+  <div id=Dashboard class="Content EdgePad" role=main>
+    <div id=YourPortfolio class=DashboardPanel>
       <header>
         <div class=PanelHeaderBar><h2>Your Portfolio</h2></div>
         <div class=PortfolioValue>
@@ -44,28 +44,74 @@
           <p class="PriceChange PriceChangeIncrease" itemprop=priceChange>+$8,700.86</p>
         </div>
       </header>
-      <div itemprop="mainEntity" itemscope itemtype="http://schema.org/ItemList">
-        <meta itemprop="name" content="Cryptocurrencies in Your Portfolio"/>
-        <ul>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/DepositAccount">
-            <span><a itemprop="provider" href="https://www.rcibank.co.uk">RCI Bank</a></span>
-            <span itemprop="name">Freedom Savings Account</span>
-            <span itemprop="interestRate" itemscope itemtype="http://schema.org/QuantitativeValue"><span itemprop="value">1.65</span>% <span itemprop="valueReference">Variable</span></span>
-            <span itemprop="amount" itemscope itemtype="http://schema.org/MonetaryAmount"><meta itemprop="currency" content="GBP"/>£<span itemprop="minValue" content="100">100</span> to £<span itemprop="maxValue" content="1000000">1,000,000</span></span>
+      <div class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
+        <meta itemprop=name content="Cryptocurrencies in Your Portfolio"/>
+        <ul class=Portfolio>
+          <li class="Wallet WalletBTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
+            <div class=Provider>
+              <span><a itemprop=provider href=https://bitcoin.org/>Bitcoin</a></span>
+              <span class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>BTC</span>
+            </div>
+            <div class=WalletAmount>
+              <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>BTC</span></span>
+              <span class=Divider>/</span>
+              <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
+            </div>
+            <div class="ValueChange Increase">
+              <span class="Difference" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN />C$</span>1,000.77</span>
+              <span class=Divider>/</span>
+              <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>BTC</span></span>
+            </div>
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/DepositAccount">
-            <span><a itemprop="provider" href="https://sbiukonlinesavings.com/">State Bank of India</a></span>
-            <span itemprop="name">Online Instant Access Savings Issue 4</span>
-            <span itemprop="interestRate" itemscope itemtype="http://schema.org/QuantitativeValue"><span itemprop="value">1.25</span>% <span itemprop="valueReference">Variable</span></span>
-            <span itemprop="amount" itemscope itemtype="http://schema.org/MonetaryAmount"><meta itemprop="currency" content="GBP"/>£<span itemprop="minValue" content="500">500</span> to £<span itemprop="maxValue" content="1000000">1,000,000</span></span>
+          <li class="Wallet WalletETH" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
+            <div class=Provider>
+              <span><a itemprop=provider href=https://www.ethereum.org/>Ethereum</a></span>
+              <span class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>ETH</span>
+            </div>
+            <div class=WalletAmount>
+              <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>ETH</span></span>
+              <span class=Divider>/</span>
+              <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
+            </div>
+            <div class="ValueChange Increase">
+              <span class="Difference" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN />C$</span>1,000.77</span>
+              <span class=Divider>/</span>
+              <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>ETH</span></span>
+            </div>
           </li>
-          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/DepositAccount">
-            <span><a itemprop="provider" href="http://www.aldermore.co.uk/">Aldermore</a></span>
-            <span itemprop="name">Easy Access Issue 9</span>
-            <span itemprop="interestRate" itemscope itemtype="http://schema.org/QuantitativeValue"><span itemprop="value">1.25</span>% <span itemprop="valueReference">Variable</span></span>
-            <span itemprop="amount" itemscope itemtype="http://schema.org/MonetaryAmount"><meta itemprop="currency" content="GBP"/>£<span itemprop="minValue" content="1000">1,000</span> to £<span itemprop="maxValue" content="1000000">1,000,000</span></span>
+          <li class="Wallet WalletLTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
+            <div class=Provider>
+              <span><a itemprop=provider href=https://litecoin.com/>Litecoin</a></span>
+              <span class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>LTC</span>
+            </div>
+            <div class=WalletAmount>
+              <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>LTC</span></span>
+              <span class=Divider>/</span>
+              <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
+            </div>
+            <div class="ValueChange Increase">
+              <span class="Difference" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN />C$</span>1,000.77</span>
+              <span class=Divider>/</span>
+              <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>LTC</span></span>
+            </div>
           </li>
-        </table>
+          <li class="Wallet WalletMXR" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
+            <div class=Provider>
+              <span><a itemprop=provider href=http://mxrcoin.com/>MaxVR Coin</a></span>
+              <span class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>MXR</span>
+            </div>
+            <div class=WalletAmount>
+              <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>MXR</span></span>
+              <span class=Divider>/</span>
+              <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
+            </div>
+            <div class="ValueChange Increase">
+              <span class="Difference" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN />C$</span>1,000.77</span>
+              <span class=Divider>/</span>
+              <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>MXR</span></span>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
