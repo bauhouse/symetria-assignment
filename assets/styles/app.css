@@ -813,3 +813,8 @@ body>*{
         right:calc(75% - 2.578125rem)
     }
 }
+
+#UserBar {
+  background: #230913;
+  height: 2rem;
+}
