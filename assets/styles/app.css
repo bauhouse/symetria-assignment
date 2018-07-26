@@ -888,3 +888,16 @@ body{
     border-right: .7rem solid transparent;
     border-bottom: .9rem solid #39b54a;
 }
+
+.Wallets {
+    margin: 0;
+    padding: .4rem;
+}
+
+.Wallets .Wallet {
+    list-style: none;
+    margin: .9rem .4rem;
+    padding: .8rem;
+    background: #fff;
+    box-shadow: 0 0 0.1rem .1rem rgba(0, 0, 0, 0.1);
+}
