@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vuetify: Divider</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@1.1.8/dist/vuetify.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <v-app id="inspire">
+        <v-layout row>
+          <v-flex xs12 sm6 offset-sm3>
+            <v-card>
+              <v-toolbar color="pink" dark>
+                <v-toolbar-side-icon></v-toolbar-side-icon>
+                <v-toolbar-title>Inbox</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                  <v-icon>search</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>check_circle</v-icon>
+                </v-btn>
+              </v-toolbar>
+              <v-list two-line>
+                <template v-for="(item, index) in items">
+                  <v-list-tile :key="index" avatar ripple @click="">
+                    <v-list-tile-content>
+                      <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                      <v-list-tile-sub-title class="text--primary">{{ item.headline }}</v-list-tile-sub-title>
+                      <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
+                    </v-list-tile-content>
+                    <v-list-tile-action>
+                      <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
+                      <v-icon color="grey lighten-1">star_border</v-icon>
+                    </v-list-tile-action>
+                  </v-list-tile>
+                  <v-divider v-if="index + 1 < items.length" :key="`divider-${index}`"></v-divider>
+                </template>
+              </v-list>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@1.1.8/dist/vuetify.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
