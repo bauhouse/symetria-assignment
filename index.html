@@ -46,7 +46,7 @@
             <p class="PriceChange PriceChangeIncrease" itemprop=priceChange v-bind:content="priceChange">{{ priceChangeFormatted }}</p>
           </div>
         </header>
-        <div class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
+        <div v-if="connected" class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
           <meta itemprop=name content="Cryptocurrencies in Your Portfolio"/>
           <ul class=Wallets>
             <li class="Wallet WalletBTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
