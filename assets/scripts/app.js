@@ -72,6 +72,10 @@ const portfolio = GetWallets().then(response => {
     app.statusMessage = e;
 });
 
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function mergeData(arr) {
     let items = [];
     arr.map(item => {
@@ -82,6 +86,7 @@ function mergeData(arr) {
         item.url = providers[key].url;
         item.svg = 'assets/images/icons/icons.svg#' + key;
         item.rate = ExchangeRatesToCAD.filter(rate => rate.currency == item.identifier)[0].rate;
+        item.changeTodayCDN = numberWithCommas((item.amount * item.rate).toFixed(2));
         items.push(item);
     });
     return items;
