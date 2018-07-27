@@ -14,14 +14,15 @@ var app = new Vue({
         portfolioValueChangeType: 'ChangeNone',
         portfolioValueChangeSign: '',
         portfolioValueChange: 0,
-        portfolioValueChangeFormatted: ''
-
+        portfolioValueChangeFormatted: '',
+        show: false
     },
     methods: {
         connect: function (event) {
             connectToAPI();
         }
     }
+
 });
 
 const providers = {
