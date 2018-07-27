@@ -23,7 +23,7 @@ function GetWallets() {
 
 		setTimeout(function () {
 
-			if (Math.random() < 0.2) {
+			if (Math.random() < 0.5) {
 				reject("Could not connect to server");
 				return;
 			}
@@ -37,7 +37,7 @@ function GetWallets() {
 
 			]);
 
-		}, 250);
+		}, 1000);
 
 	});
 

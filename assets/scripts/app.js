@@ -4,7 +4,7 @@ var app = new Vue({
         connected: false,
         error: false,
         statusHeading: 'Status',
-        statusTitle: 'Connecting…',
+        statusTitle: 'Connecting',
         statusMessage: 'One moment, please.',
         panelHeading: 'Your Portfolio',
         panelSubheading: 'Portfolio Value',
@@ -15,6 +15,7 @@ var app = new Vue({
         portfolioValueChangeSign: '',
         portfolioValueChange: 0,
         portfolioValueChangeFormatted: '',
+        connecting: true,
         show: false
     },
     methods: {
@@ -71,16 +72,21 @@ const formatNumber = (x) => {
 }
 
 function connectToAPI() {
+    app.connecting = true;
+    app.statusTitle = 'Connecting';
+    app.statusMessage = 'One moment, please.';
     let data = GetWallets().then(response => {
         console.log(response);
         app.connected = true;
         app.panelHeading = 'Your Portfolio';
         app.panelSubheading = 'Portfolio Value';
         app.portfolio = mergeData(response);
+        app.connecting = false;
         app.error = false;
         app.show = true;
     }).catch(e => {
         console.log(e);
+        app.connecting = false;
         app.connected = false;
         app.error = true;
         app.statusTitle = 'Server Error'

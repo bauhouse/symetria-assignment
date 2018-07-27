@@ -41,8 +41,8 @@
         <header id=PanelHeader>
           <div class=PanelHeaderBar><h2>{{ panelHeading }}</h2></div>
           <div class=PortfolioValue>
-            <h3>{{ connected ? panelSubheading : statusHeading }}</h3>
-            <h1 class=Amount itemprop=amount v-bind:content="portfolioValue">{{ connected ? portfolioValueFormatted : statusTitle }}</h1>
+            <h3>{{ !connected ? statusHeading : panelSubheading }}</h3>
+            <h1 class="Amount" v-bind:class="{ pulse: connecting }" itemprop=amount v-bind:content="portfolioValue">{{ connected ? portfolioValueFormatted : statusTitle }}</h1>
             <p class=PriceChange v-bind:class="portfolioValueChangeType" itemprop=priceChange v-bind:content="portfolioValueChange">{{ connected ? portfolioValueChangeFormatted : statusMessage }}</p>
           </div>
         </header>

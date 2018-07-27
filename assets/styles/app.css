@@ -1070,3 +1070,19 @@ button:hover,
     margin-top: -350px;
     opacity: 0;
 }
+
+
+/* Pulse
+---------------------------------------------- */
+.pulse {
+    animation: pulse .5s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
