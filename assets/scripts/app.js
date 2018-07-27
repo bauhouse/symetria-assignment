@@ -62,7 +62,7 @@ const portfolio = GetWallets().then(response => {
     app.connected = true;
     app.panelHeading = 'Your Portfolio';
     app.panelSubheading = 'Portfolio Value';
-    app.portfolio = response;
+    app.portfolio = mergeData(response);
     app.portfolioIncrease = true;
 }).catch(e => {
     console.log(e);
@@ -71,3 +71,17 @@ const portfolio = GetWallets().then(response => {
     app.statusTitle = 'Server Error'
     app.statusMessage = e;
 });
+
+function mergeData(arr) {
+    let items = [];
+    arr.map(item => {
+        let key = item.currency.toLowerCase();
+        item.id = providers[key].id;
+        item.identifier = providers[key].identifier;
+        item.name = providers[key].name;
+        item.url = providers[key].url;
+        item.svg = 'assets/images/icons/icons.svg#' + key;
+        items.push(item);
+    });
+    return items;
+}
