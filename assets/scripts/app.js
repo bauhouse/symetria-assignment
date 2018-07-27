@@ -81,6 +81,7 @@ function mergeData(arr) {
         item.name = providers[key].name;
         item.url = providers[key].url;
         item.svg = 'assets/images/icons/icons.svg#' + key;
+        item.rate = ExchangeRatesToCAD.filter(rate => rate.currency == item.identifier)[0].rate;
         items.push(item);
     });
     return items;
