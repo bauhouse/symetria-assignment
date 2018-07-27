@@ -58,23 +58,29 @@ const providers = {
     }
 }
 
-const portfolio = GetWallets().then(response => {
-    console.log(response);
-    app.connected = true;
-    app.panelHeading = 'Your Portfolio';
-    app.panelSubheading = 'Portfolio Value';
-    app.portfolio = mergeData(response);
-    app.portfolioIncrease = true;
-}).catch(e => {
-    console.log(e);
-    app.connected = false;
-    app.error = true;
-    app.statusTitle = 'Server Error'
-    app.statusMessage = e;
-});
+const portfolio = connectToAPI();
 
 const formatNumber = (x) => {
   return x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function connectToAPI() {
+    let data = GetWallets().then(response => {
+        console.log(response);
+        app.connected = true;
+        app.panelHeading = 'Your Portfolio';
+        app.panelSubheading = 'Portfolio Value';
+        app.portfolio = mergeData(response);
+        app.error = false;
+        app.show = true;
+    }).catch(e => {
+        console.log(e);
+        app.connected = false;
+        app.error = true;
+        app.statusTitle = 'Server Error'
+        app.statusMessage = e;
+    });
+    return data;
 }
 
 function mergeData(arr) {
