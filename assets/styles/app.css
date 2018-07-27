@@ -939,6 +939,10 @@ body{
     overflow: hidden;
 }
 
+.Wallet .ValueChange {
+    color: #726067;
+}
+
 .Wallet .ValueChange .Divider {
     display: none;
 }
