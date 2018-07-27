@@ -38,7 +38,7 @@
     </header>
     <div id=Dashboard class="Content EdgePad" role=main>
       <div id=YourPortfolio class="DashboardPanel Portfolio">
-        <header>
+        <header id=PanelHeader>
           <div class=PanelHeaderBar><h2>{{ panelHeading }}</h2></div>
           <div class=PortfolioValue>
             <h3>{{ connected ? panelSubheading : statusHeading }}</h3>
@@ -46,37 +46,40 @@
             <p class=PriceChange v-bind:class="portfolioValueChangeType" itemprop=priceChange v-bind:content="portfolioValueChange">{{ connected ? portfolioValueChangeFormatted : statusMessage }}</p>
           </div>
         </header>
-        <div v-if="connected" class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
-          <meta itemprop=name content="Cryptocurrencies in Your Portfolio"/>
-          <ul class=Wallets>
-            <li v-for="(item, index) in portfolio" :key="item.id" class="Wallet WalletBTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
-              <div class=Provider itemprop=provider>
-                <a itemprop=url v-bind:href="portfolio[index].url" v-bind:title="portfolio[index].name">
-                  <svg class="icon" aria-hidden="true" focusable="false">
-                    <use v-bind:xlink:href="portfolio[index].svg"></use>
-                  </svg>
-                  <span class="access-label">{{ portfolio[index].name }}</span>
-                </a>
-              </div>
-              <div class=WalletAmount>
-                <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>{{ portfolio[index].currency }}</div>
-                <div class="ValueCurrencies">
-                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>{{ portfolio[index].amount }}</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
-                  <span class=Divider>/</span>
-                  <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value v-bind:content=portfolio[index].amount>{{ portfolio[index].amountCDNFormatted }}</span></span>
-                </div>
-              </div>
-              <div class=ValueChange v-bind:class="portfolio[index].changeType">
-                <span class="Difference DifferenceCDN" itemprop=priceChange v-bind:content="portfolio[index].changeTodayCDN"><span class=changeSign>{{ portfolio[index].changeSign }}</span><span class=Currency itemprop=currency content=CDN />C$</span>{{ portfolio[index].changeTodayCDNFormatted }}</span>
-                <meta itemprop="currentExchangeRate" itemscope itemtype=http://schema.org/UnitPriceSpecification v-bind:content=portfolio[index].rate />
-                <span class=Divider>/</span>
-                <span class="Difference DifferenceCrypto" itemprop="currentExchangeRate" itemscope itemtype=http://schema.org/UnitPriceSpecification><span class=Value itemprop=value><span class="label">Exchange Rate: </span>{{ portfolio[index].rate }}</span></span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div v-else class=PanelContent>
-          <a v-if="error" class=button href="index.html">Try Again</a>
+        <div class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
+          <transition name="slide">
+            <div class="container" v-if="show">
+              <meta itemprop=name content="Cryptocurrencies in Your Portfolio"/>
+              <ul class=Wallets>
+                <li v-for="(item, index) in portfolio" :key="item.id" class="Wallet WalletBTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
+                  <div class=Provider itemprop=provider>
+                    <a itemprop=url v-bind:href="portfolio[index].url" v-bind:title="portfolio[index].name">
+                      <svg class="icon" aria-hidden="true" focusable="false">
+                        <use v-bind:xlink:href="portfolio[index].svg"></use>
+                      </svg>
+                      <span class="access-label">{{ portfolio[index].name }}</span>
+                    </a>
+                  </div>
+                  <div class=WalletAmount>
+                    <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>{{ portfolio[index].currency }}</div>
+                    <div class="ValueCurrencies">
+                      <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>{{ portfolio[index].amount }}</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
+                      <span class=Divider>/</span>
+                      <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value v-bind:content=portfolio[index].amount>{{ portfolio[index].amountCDNFormatted }}</span></span>
+                    </div>
+                  </div>
+                  <div class=ValueChange v-bind:class="portfolio[index].changeType">
+                    <span class="Difference DifferenceCDN" itemprop=priceChange v-bind:content="portfolio[index].changeTodayCDN"><span class=changeSign>{{ portfolio[index].changeSign }}</span><span class=Currency itemprop=currency content=CDN />C$</span>{{ portfolio[index].changeTodayCDNFormatted }}</span>
+                    <meta itemprop="currentExchangeRate" itemscope itemtype=http://schema.org/UnitPriceSpecification v-bind:content=portfolio[index].rate />
+                    <span class=Divider>/</span>
+                    <span class="Difference DifferenceCrypto" itemprop="currentExchangeRate" itemscope itemtype=http://schema.org/UnitPriceSpecification><span class=Value itemprop=value><span class="label">Exchange Rate: </span>{{ portfolio[index].rate }}</span></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </transition>
+          <button v-if="error" v-on:click="connect">Try Again</a>
+          <button v-if="connected" v-on:click="show = !show">{{ show ? 'Hide Wallets' : 'View Wallets' }}</button>
         </div>
       </div>
     </div>
