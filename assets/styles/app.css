@@ -818,7 +818,7 @@ body{
 }
 
 #TopBar{
-    box-shadow: 0 .1rem 0.2rem .2rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 .1rem .2rem .2rem rgba(0, 0, 0, 0.1);
 }
 
 #UserBar {
@@ -832,7 +832,7 @@ body{
 
 .DashboardPanel {
     background: #fff;
-    box-shadow: 0 .1rem 0.2rem .2rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 .1rem .2rem .2rem rgba(0, 0, 0, 0.1);
     border-top: .65rem solid #000;
     overflow: hidden;
 }
@@ -841,7 +841,6 @@ body{
     padding: .8em 1em;
     background: #fff;
     border-bottom: 1px solid #d0cbcd;
-    /* box-shadow: 0 .1rem 0.1rem .05rem rgba(0, 0, 0, 0.1); */
 }
 
 .PanelHeaderBar h2 {
@@ -852,20 +851,20 @@ body{
     padding: 1.2em;
     text-align: center;
     border-bottom: 1px solid #d0cbcd;
-    box-shadow: 0 .1rem 0.2rem .2rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 .1rem .2rem .2rem rgba(0, 0, 0, 0.1);
 }
 
 .DashboardPanel .PortfolioValue h3 {
     font-size: .9rem;
     font-weight: normal;
     text-transform: uppercase;
-    letter-spacing: 0.07rem;
+    letter-spacing: .07rem;
     color: #726067;
 }
 
 .DashboardPanel .PortfolioValue h1 {
     font-size: 2.8rem;
-    letter-spacing: -0.04rem;
+    letter-spacing: -.04rem;
     color: #230913;
     margin-bottom: .4rem;
 }
@@ -899,5 +898,67 @@ body{
     margin: .9rem .4rem;
     padding: .8rem;
     background: #fff;
-    box-shadow: 0 0 0.1rem .1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 40px auto;
+    grid-template-areas:
+      "WP WA"
+      ".  VC";
+    grid-row-gap: .5rem;
+    grid-column-gap: .8rem;
+}
+
+.Provider {
+    grid-area: WP;
+}
+
+.WalletAmount {
+    grid-area: WA;
+}
+
+.ValueChange {
+    grid-area: VC;
+}
+
+.Wallet .Identifier,
+.Wallet .AmountCrypto {
+    font-weight: bold;
+}
+
+.Wallet .access-label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+
+.Wallet .icon {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.Wallet .ValueChange .Divider {
+    display: none;
+}
+
+.Wallet .ValueChange .DifferenceCrypto {
+    display: block;
+}
+
+
+@media (min-width: 40em) {
+
+  .Wallets .Wallet {
+    grid-template-columns: 40px auto auto;
+    grid-template-areas:
+      "WP WA VC";
+  }
+
+  .Wallet .ValueChange {
+      text-align: right;
+  }
+
 }
