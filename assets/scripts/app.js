@@ -86,7 +86,12 @@ function mergeData(arr) {
         item.url = providers[key].url;
         item.svg = 'assets/images/icons/icons.svg#' + key;
         item.rate = ExchangeRatesToCAD.filter(rate => rate.currency == item.identifier)[0].rate;
-        item.changeTodayCDN = numberWithCommas((item.amount * item.rate).toFixed(2));
+        item.amountCDN = (item.amount * item.rate).toFixed(2);
+        item.amountCDNFormatted = numberWithCommas(Math.abs(item.amountCDN));
+        item.changeType = item.changeToday > 0 ? 'ChangeUp' : item.changeToday == 0 ? 'ChangeNone' : 'ChangeDown';
+        item.changeSign = item.changeToday > 0 ? '+' : item.changeToday == 0 ? '' : '-';
+        item.changeTodayCDN = (item.changeToday * item.rate).toFixed(2);
+        item.changeTodayCDNFormatted = numberWithCommas(Math.abs(item.changeTodayCDN));
         items.push(item);
     });
     return items;
