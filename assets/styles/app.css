@@ -903,6 +903,7 @@ body{
 
 .PanelContent {
   padding: .8em;
+  overflow: hidden;
 }
 
 .Wallets {
@@ -1047,9 +1048,25 @@ button:hover,
     background: #015a49;
 }
 
-.appear-enter-active, .appear-leave-active {
-  transition: opacity .5s;
+
+/* Vue Transitions
+---------------------------------------------- */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
 }
-.appear-enter, .appear-leave-to {
-  opacity: 0;
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.slide-enter-active {
+    transition: all .3s ease;
+}
+.slide-leave-active {
+    transition: all .8s ease;
+}
+.slide-enter,
+.slide-leave-to {
+    margin-top: -350px;
+    opacity: 0;
 }
