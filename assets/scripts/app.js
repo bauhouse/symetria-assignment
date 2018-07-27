@@ -89,7 +89,7 @@ function mergeData(arr) {
         item.amountCDN = (item.amount * item.rate).toFixed(2);
         item.amountCDNFormatted = numberWithCommas(Math.abs(item.amountCDN));
         item.changeType = item.changeToday > 0 ? 'ChangeUp' : item.changeToday == 0 ? 'ChangeNone' : 'ChangeDown';
-        item.changeSign = item.changeToday > 0 ? '+' : item.changeToday == 0 ? '' : '-';
+        item.changeSign = item.changeToday > 0 ? '+' : item.changeToday == 0 ? '' : '–';
         item.changeTodayCDN = (item.changeToday * item.rate).toFixed(2);
         item.changeTodayCDNFormatted = numberWithCommas(Math.abs(item.changeTodayCDN));
         items.push(item);
