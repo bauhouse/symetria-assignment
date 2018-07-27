@@ -989,3 +989,27 @@ body{
   }
 
 }
+
+.button {
+    background: #e2a14c;
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: .1em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: center;
+    color: #fff;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: background-color 0.5s ease;
+}
+
+.button:hover {
+    background: #015a49;
+}
