@@ -901,14 +901,18 @@ body{
     border-top: .9rem solid #ed1c70;
 }
 
+.PanelContent {
+  padding: .8em;
+}
+
 .Wallets {
     margin: 0;
-    padding: .4rem;
+    padding: 0;
 }
 
 .Wallets .Wallet {
     list-style: none;
-    margin: .9rem .4rem;
+    margin: .9rem 0;
     padding: .9em .8rem;
     background: #fff;
     box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.1);
@@ -919,6 +923,10 @@ body{
       ".  VC";
     grid-row-gap: .5rem;
     grid-column-gap: .8rem;
+}
+
+.Wallets .Wallet:first-child {
+  margin-top: 0;
 }
 
 .Provider {
@@ -1012,9 +1020,11 @@ body{
 
 }
 
+button,
 .button {
     background: #e2a14c;
     display: block;
+    width: 100%;
     padding: 1rem 2rem;
     font-size: 1.2rem;
     font-weight: 400;
@@ -1032,6 +1042,14 @@ body{
     transition: background-color 0.5s ease;
 }
 
+button:hover,
 .button:hover {
     background: #015a49;
+}
+
+.appear-enter-active, .appear-leave-active {
+  transition: opacity .5s;
+}
+.appear-enter, .appear-leave-to {
+  opacity: 0;
 }
