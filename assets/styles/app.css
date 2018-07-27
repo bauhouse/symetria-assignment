@@ -961,11 +961,14 @@ body{
 .Wallet .DifferenceCDN {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #39b54a;
-    position: relative;
 }
 
-.Wallet .DifferenceCDN::before {
+.Wallet .ChangeUp .DifferenceCDN {
+    color: #39b54a;
+}
+
+.Wallet .ChangeUp .DifferenceCDN::before,
+.Wallet .ChangeDown .DifferenceCDN::before {
     content: "";
     display: inline-block;
     width: 0;
@@ -973,7 +976,18 @@ body{
     margin-right: .2em;
     border-left: .7rem solid transparent;
     border-right: .7rem solid transparent;
+}
+
+.Wallet .ChangeUp .DifferenceCDN::before {
     border-bottom: .9rem solid #39b54a;
+}
+
+.Wallet .ChangeDown .DifferenceCDN {
+    color: #ed1c70;
+}
+
+.Wallet .ChangeDown .DifferenceCDN::before {
+    border-top: .9rem solid #ed1c70;
 }
 
 @media (min-width: 40em) {
