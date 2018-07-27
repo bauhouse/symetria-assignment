@@ -869,11 +869,17 @@ body{
     margin-bottom: .4rem;
 }
 
-.DashboardPanel .PortfolioValue .PriceChangeIncrease {
+.DashboardPanel .PortfolioValue p {
     font-size: 1.2rem;
-    color: #39b54a;
     margin: 0;
-    position: relative;
+}
+
+.DashboardPanel .PortfolioValue .PriceChangeIncrease {
+    color: #39b54a;
+}
+
+.DashboardPanel .PortfolioValue .PriceChangeDecrease {
+    color: #ed1c70;
 }
 
 .DashboardPanel .PortfolioValue .PriceChangeIncrease::before {
