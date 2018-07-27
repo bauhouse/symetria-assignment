@@ -23,31 +23,37 @@ const providers = {
     id: 'btc',
     identifier: 'BTC',
     name: 'Bitcoin',
-    url: 'https://bitcoin.org/',
+    url: 'https://bitcoin.org/'
   },
   doge: {
     id: 'doge',
     identifier: 'DOGE',
     name: 'Dogecoin',
-    url: 'https://dogecoin.com/',
+    url: 'https://dogecoin.com/'
   },
   eth: {
     id: 'eth',
     identifier: 'ETH',
     name: 'Ethereum',
-    url: 'https://www.ethereum.org/',
+    url: 'https://www.ethereum.org/'
   },
   ltc: {
     id: 'ltc',
     identifier: 'LTC',
     name: 'Litecoin',
-    url: 'https://litecoin.com/',
+    url: 'https://litecoin.com/'
   },
   mxr: {
     id: 'mxr',
     identifier: 'MXR',
     name: 'MaxVR',
-    url: 'https://mxrcoin.com/',
+    url: 'https://mxrcoin.com/'
+  },
+  xmr: {
+    id: 'xmr',
+    identifier: 'XMR',
+    name: 'Monero',
+    url: 'https://monero.org/'
   }
 }
 
