@@ -55,21 +55,22 @@
                   <svg class="icon" aria-hidden="true" focusable="false">
                     <use v-bind:xlink:href="portfolio[index].svg"></use>
                   </svg>
-                  <span class="access-label">Bitcoin</span>
+                  <span class="access-label">{{ portfolio[index].name }}</span>
                 </a>
               </div>
               <div class=WalletAmount>
                 <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>{{ portfolio[index].currency }}</div>
                 <div class="ValueCurrencies">
-                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
+                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>{{ portfolio[index].amount }}</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
                   <span class=Divider>/</span>
-                  <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
+                  <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value v-bind:content=portfolio[index].amount>{{ portfolio[index].amountCDNFormatted }}</span></span>
                 </div>
               </div>
-              <div class="ValueChange Increase">
-                <span class="Difference DifferenceCDN" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN />C$</span>1,000.77</span>
+              <div class=ValueChange v-bind:class="portfolio[index].changeType">
+                <span class="Difference DifferenceCDN" itemprop=priceChange v-bind:content="portfolio[index].changeTodayCDN"><span class=changeSign>{{ portfolio[index].changeSign }}</span><span class=Currency itemprop=currency content=CDN />C$</span>{{ portfolio[index].changeTodayCDNFormatted }}</span>
+                <meta itemprop="currentExchangeRate" itemscope itemtype=http://schema.org/UnitPriceSpecification v-bind:content=portfolio[index].rate />
                 <span class=Divider>/</span>
-                <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
+                <span class="Difference DifferenceCrypto" itemprop="currentExchangeRate" itemscope itemtype=http://schema.org/UnitPriceSpecification><span class=Value itemprop=value><span class="label">Exchange Rate: </span>{{ portfolio[index].rate }}</span></span>
               </div>
             </li>
           </ul>
