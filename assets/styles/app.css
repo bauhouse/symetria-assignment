@@ -895,7 +895,7 @@ body{
 .Wallets .Wallet {
     list-style: none;
     margin: .9rem .4rem;
-    padding: .8rem;
+    padding: .9em .8rem;
     background: #fff;
     box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.1);
     display: grid;
@@ -941,6 +941,7 @@ body{
 
 .Wallet .ValueChange {
     color: #726067;
+    margin-top: -.3em;
 }
 
 .Wallet .ValueChange .Divider {
