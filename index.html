@@ -49,19 +49,19 @@
         <div v-if="connected" class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
           <meta itemprop=name content="Cryptocurrencies in Your Portfolio"/>
           <ul class=Wallets>
-            <li class="Wallet WalletBTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
+            <li v-for="(item, index) in portfolio" :key="item.id" class="Wallet WalletBTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
               <div class=Provider itemprop=provider>
-                <a itemprop=url href=https://bitcoin.org/ title="Bitcoin">
+                <a itemprop=url v-bind:href="portfolio[index].url" v-bind:title="portfolio[index].name">
                   <svg class="icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="assets/images/icons/icons.svg#btc"></use>
+                    <use v-bind:xlink:href="portfolio[index].svg"></use>
                   </svg>
                   <span class="access-label">Bitcoin</span>
                 </a>
               </div>
               <div class=WalletAmount>
-                <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>BTC</div>
+                <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>{{ portfolio[index].currency }}</div>
                 <div class="ValueCurrencies">
-                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>BTC</span></span>
+                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
                   <span class=Divider>/</span>
                   <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
                 </div>
@@ -69,76 +69,7 @@
               <div class="ValueChange Increase">
                 <span class="Difference DifferenceCDN" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN />C$</span>1,000.77</span>
                 <span class=Divider>/</span>
-                <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>BTC</span></span>
-              </div>
-            </li>
-            <li class="Wallet WalletETH" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
-              <div class=Provider itemprop=provider>
-                <a itemprop=url href=https://www.ethereum.org/ title="Ethereum">
-                  <svg class="icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="assets/images/icons/icons.svg#eth"></use>
-                  </svg>
-                  <span class="access-label">Ethereum</span>
-                </a>
-              </div>
-              <div class=WalletAmount>
-                <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>ETH</div>
-                <div class="ValueCurrencies">
-                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>ETH</span></span>
-                  <span class=Divider>/</span>
-                  <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
-                </div>
-              </div>
-              <div class="ValueChange Increase">
-                <span class="Difference DifferenceCDN" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN>C$</span>1,000.77</span>
-                <span class=Divider>/</span>
-                <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>ETH</span></span>
-              </div>
-            </li>
-            <li class="Wallet WalletLTC" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
-              <div class=Provider itemprop=provider>
-                <a itemprop=url href=https://litecoin.com/ title="Litecoin">
-                  <svg class="icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="assets/images/icons/icons.svg#ltc"></use>
-                  </svg>
-                  <span class="access-label">Litecoin</span>
-                </a>
-              </div>
-              <div class=WalletAmount>
-                <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>LTC</div>
-                <div class="ValueCurrencies">
-                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>LTC</span></span>
-                  <span class=Divider>/</span>
-                  <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
-                </div>
-              </div>
-              <div class="ValueChange Increase">
-                <span class="Difference DifferenceCDN" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN>C$</span>1,000.77</span>
-                <span class=Divider>/</span>
-                <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>LTC</span></span>
-              </div>
-            </li>
-            <li class="Wallet WalletMXR" itemprop="itemListElement" itemscope itemtype=http://schema.org/DepositAccount>
-              <div class=Provider itemprop=provider>
-                <a itemprop=url href=https://mxrcoin.com/ title="MaxVR Coin">
-                  <svg class="icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="assets/images/icons/icons.svg#mxr"></use>
-                  </svg>
-                  <span class="access-label">MaxVR Coin</span>
-                </a>
-              </div>
-              <div class=WalletAmount>
-                <div class=Identifier itemprop=identifier itemscope itemtype=https://schema.org/identifier>MXR</div>
-                <div class="ValueCurrencies">
-                  <span class="Amount AmountCrypto" itemscope itemtype=http://schema.org/MonetaryAmount><span class=Value itemprop=value>0.5001</span> <span class=Currency itemprop=currency>MXR</span></span>
-                  <span class=Divider>/</span>
-                  <span class=Amount itemprop=amount itemscope itemtype=http://schema.org/MonetaryAmount><span class=Currency itemprop=currency content=CDN />C$</span><span class=Value itemprop=value content=10000.1>10,000.10</span></span>
-                </div>
-              </div>
-              <div class="ValueChange Increase">
-                <span class="Difference DifferenceCDN" itemprop=priceChange content="1000.77"><span class=PlusMinus>+</span><span class=Currency itemprop=currency content=CDN>C$</span>1,000.77</span>
-                <span class=Divider>/</span>
-                <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>MXR</span></span>
+                <span class="Difference DifferenceCrypto" itemscope itemtype=http://schema.org/MonetaryAmount>+<span class=Value itemprop=value>0.1005</span> <span class=Currency itemprop=currency>{{ portfolio[index].currency }}</span></span>
               </div>
             </li>
           </ul>
