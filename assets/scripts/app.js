@@ -88,11 +88,11 @@ function mergeData(arr) {
         item.svg = 'assets/images/icons/icons.svg#' + key;
         item.rate = ExchangeRatesToCAD.filter(rate => rate.currency == item.identifier)[0].rate;
         item.amountCDN = (item.amount * item.rate).toFixed(2);
-        item.amountCDNFormatted = numberWithCommas(Math.abs(item.amountCDN));
+        item.amountCDNFormatted = formatNumber(Math.abs(item.amountCDN));
         item.changeType = item.changeToday > 0 ? 'ChangeUp' : item.changeToday == 0 ? 'ChangeNone' : 'ChangeDown';
         item.changeSign = item.changeToday > 0 ? '+' : item.changeToday == 0 ? '' : '–';
         item.changeTodayCDN = (item.changeToday * item.rate).toFixed(2);
-        item.changeTodayCDNFormatted = numberWithCommas(Math.abs(item.changeTodayCDN));
+        item.changeTodayCDNFormatted = formatNumber(Math.abs(item.changeTodayCDN));
         items.push(item);
 
         app.portfolioValue += Number(item.amountCDN);
@@ -102,8 +102,8 @@ function mergeData(arr) {
 
     app.portfolioValueChangeType = app.portfolioValueChange > 0 ? 'ChangeUp' : app.portfolioValueChange == 0 ? 'ChangeNone' : 'ChangeDown';
     app.portfolioValueChangeSign = app.portfolioValueChange > 0 ? '+' : app.portfolioValueChange == 0 ? '' : '–';
-    app.portfolioValueFormatted = "$C" + numberWithCommas(Math.abs(app.portfolioValue));
-    app.portfolioValueChangeFormatted = app.portfolioValueChangeSign + "$C" + numberWithCommas(Math.abs(app.portfolioValueChange));
+    app.portfolioValueFormatted = "$C" + formatNumber(Math.abs(app.portfolioValue));
+    app.portfolioValueChangeFormatted = app.portfolioValueChangeSign + "$C" + formatNumber(Math.abs(app.portfolioValueChange));
 
     return items;
 }
