@@ -16,6 +16,11 @@ var app = new Vue({
         portfolioValueChange: 0,
         portfolioValueChangeFormatted: ''
 
+    },
+    methods: {
+        connect: function (event) {
+            connectToAPI();
+        }
     }
 });
 
