@@ -73,8 +73,8 @@ const portfolio = GetWallets().then(response => {
     app.statusMessage = e;
 });
 
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const formatNumber = (x) => {
+  return x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function mergeData(arr) {
