@@ -9,11 +9,12 @@ var app = new Vue({
         panelHeading: 'Your Portfolio',
         panelSubheading: 'Portfolio Value',
         portfolio: [],
-        portfolioValue: 19500.31,
-        portfolioValueFormatted: 'C$19,500.31',
-        portfolioIncrease: false,
-        priceChange: 8700.86,
-        priceChangeFormatted: '+$8,700.86'
+        portfolioValue: 0,
+        portfolioValueFormatted: '',
+        portfolioValueChangeType: 'ChangeNone',
+        portfolioValueChangeSign: '',
+        portfolioValueChange: 0,
+        portfolioValueChangeFormatted: ''
 
     }
 });
@@ -93,6 +94,16 @@ function mergeData(arr) {
         item.changeTodayCDN = (item.changeToday * item.rate).toFixed(2);
         item.changeTodayCDNFormatted = numberWithCommas(Math.abs(item.changeTodayCDN));
         items.push(item);
+
+        app.portfolioValue += Number(item.amountCDN);
+        app.portfolioValueChange += Number(item.changeTodayCDN);
+
     });
+
+    app.portfolioValueChangeType = app.portfolioValueChange > 0 ? 'ChangeUp' : app.portfolioValueChange == 0 ? 'ChangeNone' : 'ChangeDown';
+    app.portfolioValueChangeSign = app.portfolioValueChange > 0 ? '+' : app.portfolioValueChange == 0 ? '' : '–';
+    app.portfolioValueFormatted = "$C" + numberWithCommas(Math.abs(app.portfolioValue));
+    app.portfolioValueChangeFormatted = app.portfolioValueChangeSign + "$C" + numberWithCommas(Math.abs(app.portfolioValueChange));
+
     return items;
 }

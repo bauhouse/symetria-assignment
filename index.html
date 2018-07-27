@@ -43,7 +43,7 @@
           <div class=PortfolioValue>
             <h3>{{ connected ? panelSubheading : statusHeading }}</h3>
             <h1 class=Amount itemprop=amount v-bind:content="portfolioValue">{{ connected ? portfolioValueFormatted : statusTitle }}</h1>
-            <p v-bind:class="{ PriceChange: connected, PriceChangeIncrease: portfolioIncrease }" itemprop=priceChange v-bind:content="priceChange">{{ connected ? priceChangeFormatted : statusMessage }}</p>
+            <p class=PriceChange v-bind:class="portfolioValueChangeType" itemprop=priceChange v-bind:content="portfolioValueChange">{{ connected ? portfolioValueChangeFormatted : statusMessage }}</p>
           </div>
         </header>
         <div v-if="connected" class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>

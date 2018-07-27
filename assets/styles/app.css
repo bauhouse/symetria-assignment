@@ -874,15 +874,16 @@ body{
     margin: 0;
 }
 
-.DashboardPanel .PortfolioValue .PriceChangeIncrease {
+.DashboardPanel .PortfolioValue .ChangeUp {
     color: #39b54a;
 }
 
-.DashboardPanel .PortfolioValue .PriceChangeDecrease {
+.DashboardPanel .PortfolioValue .ChangeDown {
     color: #ed1c70;
 }
 
-.DashboardPanel .PortfolioValue .PriceChangeIncrease::before {
+.DashboardPanel .PortfolioValue .ChangeUp::before,
+.DashboardPanel .PortfolioValue .ChangeDown::before {
     display: inline-block;
     content: "";
     width: 0;
@@ -890,7 +891,14 @@ body{
     margin-right: .2em;
     border-left: .7rem solid transparent;
     border-right: .7rem solid transparent;
+}
+
+.DashboardPanel .PortfolioValue .ChangeUp::before {
     border-bottom: .9rem solid #39b54a;
+}
+
+.DashboardPanel .PortfolioValue .ChangeDown::before {
+    border-top: .9rem solid #ed1c70;
 }
 
 .Wallets {
