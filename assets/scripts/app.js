@@ -3,11 +3,15 @@ var app = new Vue({
     data: {
         connected: false,
         error: false,
-        errorMessage: '',
+        statusHeading: 'Status',
+        statusTitle: 'Connecting…',
+        statusMessage: 'One moment, please.',
+        panelHeading: 'Your Portfolio',
+        panelSubheading: 'Portfolio Value',
         portfolio: [],
         portfolioValue: 19500.31,
         portfolioValueFormatted: 'C$19,500.31',
-        portfolioIncrease: true,
+        portfolioIncrease: false,
         priceChange: 8700.86,
         priceChangeFormatted: '+$8,700.86'
 
@@ -50,10 +54,14 @@ const providers = {
 const portfolio = GetWallets().then(response => {
     console.log(response);
     app.connected = true;
+    app.panelHeading = 'Your Portfolio';
+    app.panelSubheading = 'Portfolio Value';
     app.portfolio = response;
+    app.portfolioIncrease = true;
 }).catch(e => {
     console.log(e);
     app.connected = false;
     app.error = true;
-    app.errorMessage = e;
+    app.statusTitle = 'Server Error'
+    app.statusMessage = e;
 });
