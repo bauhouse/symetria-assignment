@@ -12,7 +12,7 @@ var ExchangeRate = function (currency, rate) {
 var ExchangeRatesToCAD = [
 	new ExchangeRate("BTC", 10100),
 	new ExchangeRate("XMR", 320.45),
-	new ExchangeRate("LTC", 241.4), 
+	new ExchangeRate("LTC", 241.4),
 	new ExchangeRate("DOGE", 0.00041),
 	new ExchangeRate("ETH", 500.12717)
 ];
