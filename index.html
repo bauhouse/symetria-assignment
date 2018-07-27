@@ -39,11 +39,11 @@
     <div id=Dashboard class="Content EdgePad" role=main>
       <div id=YourPortfolio class="DashboardPanel Portfolio">
         <header>
-          <div class=PanelHeaderBar><h2>Your Portfolio</h2></div>
+          <div class=PanelHeaderBar><h2>{{ panelHeading }}</h2></div>
           <div class=PortfolioValue>
-            <h3>Portfolio Value</h3>
-            <h1 class=Amount itemprop=amount v-bind:content="portfolioValue">{{ portfolioValueFormatted }}</h1>
-            <p class="PriceChange PriceChangeIncrease" itemprop=priceChange v-bind:content="priceChange">{{ priceChangeFormatted }}</p>
+            <h3>{{ connected ? panelSubheading : statusHeading }}</h3>
+            <h1 class=Amount itemprop=amount v-bind:content="portfolioValue">{{ connected ? portfolioValueFormatted : statusTitle }}</h1>
+            <p v-bind:class="{ PriceChange: connected, PriceChangeIncrease: portfolioIncrease }" itemprop=priceChange v-bind:content="priceChange">{{ connected ? priceChangeFormatted : statusMessage }}</p>
           </div>
         </header>
         <div v-if="connected" class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
@@ -142,6 +142,9 @@
               </div>
             </li>
           </ul>
+        </div>
+        <div v-else class=PanelContent>
+          <a v-if="error" class=button href="index.html">Try Again</a>
         </div>
       </div>
     </div>
