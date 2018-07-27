@@ -42,8 +42,8 @@
           <div class=PanelHeaderBar><h2>Your Portfolio</h2></div>
           <div class=PortfolioValue>
             <h3>Portfolio Value</h3>
-            <h1 class=Amount itemprop=amount content=19500.31>{{ portfolioValue }}</h1>
-            <p class="PriceChange PriceChangeIncrease" itemprop=priceChange>+$8,700.86</p>
+            <h1 class=Amount itemprop=amount v-bind:content="portfolioValue">{{ portfolioValueFormatted }}</h1>
+            <p class="PriceChange PriceChangeIncrease" itemprop=priceChange v-bind:content="priceChange">{{ priceChangeFormatted }}</p>
           </div>
         </header>
         <div class=PanelContent itemprop=mainEntity itemscope itemtype=http://schema.org/ItemList>
